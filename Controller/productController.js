@@ -21,6 +21,24 @@ let addProduct = async (req, res) => {
     }
 }
 
+let updateProduct = async (req, res) => {
+    try {
+        let updatedProduct = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+        if (!updatedProduct) {
+            return res.status(404).send({ error: "Product not found" });
+        }
+
+        res.status(200).send(updatedProduct);
+    } catch (err) {
+        console.error("updateProduct error : ", err);
+        res.status(500).send({ error: "update Product error : ", detail: err.message });
+    }
+};
+
+
+
+
 let getProductById = async (req, res) => {
     try {
         let Product = await Product.findById(req.params.id)
@@ -52,4 +70,4 @@ let deleteProductById = async (req, res) => {
 
 
 
-export { addProduct, getAllProducts, deleteProductById, getProductById }
+export { addProduct, getAllProducts, deleteProductById, getProductById ,updateProduct }
