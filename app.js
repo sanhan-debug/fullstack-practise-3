@@ -2,14 +2,16 @@ import express from 'express'
 import dotenv from 'dotenv'
 import { connect } from 'mongoose'
 import { productRouter } from './Routes/productRoutes.js'
+import cors from 'cors'
 //  mongodb+srv://sanhan:sanhan2006@products.d6qca.mongodb.net/?retryWrites=true&w=majority&appName=products
-dotenv.config()
 
+dotenv.config()
 const app = express()
-const PORT = 3000
+const PORT = 3000 
 const URI = process.env.URI  
 
 app.use(express.json())
+app.use(cors())
 app.use("/products",productRouter)
 
 app.listen(PORT,()=>{

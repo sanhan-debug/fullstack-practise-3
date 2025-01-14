@@ -1,9 +1,14 @@
 import React from 'react'
+import Hero from '../../Components/Hero'
+import Cards from '../../Components/Cards'
 
 function Home() {
-  return (
-    <div>Home</div>
-  )
+    return (
+        <>
+            <Hero />
+            <Cards/>
+        </>
+    )
 }
 
 export default Home

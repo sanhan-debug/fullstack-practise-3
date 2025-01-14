@@ -1,4 +1,5 @@
 import AddForm from "../Pages/AddForm";
+import BasketPage from "../Pages/Basket";
 import Detail from "../Pages/Detail";
 import Home from "../Pages/Home";
 import Root from "../Pages/root";
@@ -21,6 +22,10 @@ const ROUTES = [
             {
                 path:"/addform",
                 element:<AddForm/>
+            },
+            {
+                path:"/basket/:id",
+                element:<BasketPage/>
             }
         ]
     }
