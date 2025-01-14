@@ -3,10 +3,9 @@ import { Formik, Field, Form } from 'formik';
 import axios from 'axios'; 
 
 function AddProductForm() {
-    const [status, setStatus] = useState('');
+  
 
     const initialValues = {
-        _id: '',
         name: '',
         price: '',
         image: '',
@@ -79,7 +78,6 @@ function AddProductForm() {
                 </Form>
             </Formik>
 
-            {status && <p className="mt-3 text-center">{status}</p>}
         </div>
     );
 }

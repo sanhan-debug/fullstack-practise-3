@@ -7,7 +7,7 @@ export let basketContext=createContext()
 function BasketProvider({children}) {
 
     let localBasket= JSON.parse(localStorage.getItem("basket"))
-    let [basket,setBasket]=useState(localBasket ? localBasket : [])
+    let [basket,setBasket]=useState(localBasket)
     
     useEffect(()=>{
         localStorage.setItem("basket",JSON.stringify(basket))
@@ -18,9 +18,7 @@ function BasketProvider({children}) {
         setBasket
     }
   return (
-    <basketContext.Provider value={value}>
-      {children}
-    </basketContext.Provider>
+    <basketContext.Provider value={value}>{children}</basketContext.Provider>
   )
 }
 
