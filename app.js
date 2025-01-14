@@ -2,7 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import { connect } from 'mongoose'
 import { productRouter } from './Routes/productRoutes.js'
-
+//  mongodb+srv://sanhan:sanhan2006@products.d6qca.mongodb.net/?retryWrites=true&w=majority&appName=products
 dotenv.config()
 
 const app = express()
