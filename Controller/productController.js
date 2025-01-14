@@ -3,8 +3,8 @@ import { Product } from "../Model/productModel.js";
 
 let getAllProducts = async (req, res) => {
     try {
-        let Products = await Product.find()
-        res.send(Products).status(200)
+        let products = await Product.find()
+        res.send(products).status(200)
     } catch (err) {
         console.error("get all Product error : ", err)
         res.status(500).send({ error: "get all Product eror : ", detail: err.message })
@@ -41,11 +41,11 @@ let updateProduct = async (req, res) => {
 
 let getProductById = async (req, res) => {
     try {
-        let Product = await Product.findById(req.params.id)
-        if (!Product) {
+        let product = await Product.findById(req.params.id)
+        if (!product) {
             return res.send({ message: "Product not found" }).status(404)
         }
-        res.send(Product).status(200)
+        res.send(product).status(200)
     } catch (err) {
         console.error("delete Product error : ", err)
         res.status(500).send({ error: "getbyid  error : ", detail: err.message })
@@ -54,8 +54,8 @@ let getProductById = async (req, res) => {
 
 let deleteProductById = async (req, res) => {
     try {
-        let Product = await Product.findByIdAndDelete(req.params.id)
-        if (!Product) {
+        let product = await Product.findByIdAndDelete(req.params.id)
+        if (!product) {
             return res.send("Product not found").status(200)
         }
         res.status(200).send(`deleted element id ${Product._id}`)
